@@ -103,7 +103,7 @@ useEffect(()=>{
               <Header handleLogout={handleLogout}/>
                 <div>    
                   <Switch>
-                    <Route path="/planet" exact component={PlanetListing}/>
+                    <Route  path="/planet" exact component={PlanetListing}/>
                     <Route path="/planet/:planetId" exact component={PlanetDetail}/>               
                     <Route path="/" exact component={PeopleListing}/>
                     <Route path="/people/:peopleId" exact component={PeopleDetails}/>                
