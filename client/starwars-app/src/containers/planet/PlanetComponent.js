@@ -29,7 +29,7 @@ const PlanetComponent = () => {
 
     return (
 
-        <div className="text-center" style={{backgroundImage:`url(${space})`}}>
+        <div className="text-center  h-screen" style={{backgroundImage:`url(${space})`}}>
           <div className="pt-10 font-bold">   <LazyLoadImage width={75} className="mt-3 mb-3"  effect="blur" src={planet} alt={"link.alt"} /> <h1 className="text-4xl text-white">Planet</h1> </div> 
           
           <div className="pt-10">

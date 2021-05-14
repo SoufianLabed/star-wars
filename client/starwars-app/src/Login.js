@@ -33,25 +33,28 @@ const Login = (props) => {
             <div className="text-center">
                 {hasAccount ? (
                     <>
-                        <Button onClick={handleLogin} variant="outlined" color="secondary">
-                            Sign In
-                        </Button>
-                        <p className="mt-7 mb-2 text-center font-bold"> Become an ally of the empire 🛸</p>
-                        <Button onClick={()=> setHasAcount(!hasAccount)} variant="outlined" color="secondary">
-                            Sign Up
-                        </Button>
+                         <Button onClick={handleSignup} variant="outlined" color="secondary">
+                             Sign Up
+                         </Button>
+                         <p className="mt-7 mb-2 font-bold"> Are you an ally of the empire ? 🛸</p>
+                         <Button onClick={()=> setHasAcount(!hasAccount)} variant="outlined" color="secondary">
+                             Sign In
+                         </Button>
                     </>
                 ): (
 
+             
                     <>
-                        <Button onClick={handleSignup} variant="outlined" color="secondary">
-                            Sign Up
-                        </Button>
-                        <p className="mt-7 mb-2 font-bold"> Are you an ally of the empire ? 🛸</p>
-                        <Button onClick={()=> setHasAcount(!hasAccount)} variant="outlined" color="secondary">
-                            Sign In
-                        </Button>
+                         <Button onClick={handleLogin} variant="outlined" color="secondary">
+                             Sign In
+                         </Button>
+                         <p className="mt-7 mb-2 text-center font-bold"> Become an ally of the empire 🛸</p>
+                         <Button onClick={()=> setHasAcount(!hasAccount)} variant="outlined" color="secondary">
+                             Sign Up
+                         </Button>
                     </>
+
+                    
                 )
                 }
             </div>
