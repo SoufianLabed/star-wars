@@ -1,141 +1,84 @@
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import axios from "axios";
 import {useSelector} from "react-redux";
-
-
-
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import storm from '../../assets/storm.png';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import space from "../../assets/sw.jpg"
 
 
-const useStyles = makeStyles({
-    root: {
-      minWidth: 275,
-    },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-      transform: 'scale(0.8)',
-    },
-    title: {
-      fontSize: 14,
-    },
-    pos: {
-      marginBottom: 12,
-    },
-  });
+
+
   
 
 
 const PeopleComponent = () => {
 
-    const classes = useStyles();
-    const bull = <span className={classes.bullet}>•</span>;
-
     const [searchTerm, setSearchTerm] = useState("")
     const [searchResults, setSearchResults] = useState([])
     
-    const products = useSelector((state)=> state.allProducts.products);
-    console.log("Pro",products)
-
+    const peoples = useSelector((state)=> state.allProducts.products);
 
     const handleChange = (e) => {
         setSearchTerm(e.target.value);
       };
 
     useEffect(() => {
-        const results = products.filter(people =>
+        const results = peoples.filter(people =>
             people.name.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setSearchResults(results);
       }, [searchTerm]);
 
-    return (
-        <div className="pt-10">
-
+    return (  
     
-        <input className="mb-8 bg-gray-200 appearance-none border-2 border-gray-200 rounded  py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-400" type="text" placeholder="Add people" value={searchTerm} onChange={handleChange}/>
-            {searchTerm !== '' ? 
-            <div>
-            { searchResults.map((people, i) => (
-                <div className="md:w-1/6 mb-10 ml-12 mr-12  md:inline-flex">
-                  <Card className=" md:min-w-full border-solid border-4 border-light-blue-500 ">
-                    <CardContent >
-                  
-                        <Typography className="mb-8" variant="h5" component="h2">
-                          {people.name}
-                        </Typography>
+      <div className="text-center" style={{backgroundImage:`url(${space})`}}>
+        <div className="pt-10 font-bold text-center" >   <LazyLoadImage width={75} className="mt-3 mb-3"  effect="blur" src={storm} alt={"link.alt"} /> <h1 className="text-4xl text-white">Soldier</h1> </div> 
+     
+          <div className="pt-10"  >
 
-                        <Typography  variant="body2" component="p">
-                            <p  className="font-bold flex">Gender </p>
-                            {people.gender}
-                        </Typography>
-                      
-                        <Typography c variant="body2" component="p">
-                            <p  className="font-bold flex">Mass </p>
-                            {people.mass}
-                        </Typography>
+      
+          <input className="mb-8 bg-gray-200 appearance-none border-2 border-gray-200    rounded  py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-400" type="text" placeholder="Add people" value={searchTerm} onChange={handleChange}/>
+              {searchTerm !== '' ? 
+              <div className="h-screen">
+              { searchResults.map((people, i) => (
+                      <div className="md:w-1/6 mb-10 md: ml-12 md: mr-12  md:inline-flex shadow-2xl rounded-2xl ">
+                        <div className="h-80 w-80 bg-white rounded-3xl border-solid border-4 border-blue-900">
+                          <div className="w-full  "><h1 className="mt-3 font-bold text-3xl">{people.name}</h1></div>
+                          <div className="w-full  border-b-4 border-blue-900 text-xl mt-1  text-xl"><p className="text-2xl font-medium ">Gender</p><h1 className="ml-1/5 mx-16">{people.gender}</h1></div>
+                          <div className="w-full border-b-4 border-blue-900 text-xl mt-1  text-xl"><p className="text-2xl font-medium">Hair Color</p><h1 className="ml-1/5 mx-16">{people.hair_color}</h1></div>
+                          <div className="w-full  text-xl mt-1  text-xl"><p className="text-2xl font-medium">Eye Color</p><h1 className="ml-1/5 mx-16">{people.eye_color}</h1></div>
 
-                        <Typography  variant="body2" component="p">
-                            <p  className="font-bold flex">Hair Color </p>
-                            {people.hair_color}
-                        </Typography>
-                    </CardContent>
-                    <CardActions className="text-center justify-center mx-auto">
-                        <Link to={`/people/${people.id}`}>
-                            <Button className="bg-black"  size="small">Learn More</Button>
+                          <Link  to={`/people/${people.id}`}>
+                            <div className=" pt-3"><Button variant="outlined" color="primary">Learn more</Button></div>
                         </Link>
-                    </CardActions>
-                </Card>
-             </div>
-             )
-            )}
-            </div>
-            :
-            <div className="">
-            { products.map((people) => (
-                <div className="w-1/6  ml-8 mr-8 mb-5 justify-center items-center md:inline-flex">
-               
-                <Card className=" min-w-full border-solid border-4 border-indigo-900 ">
-                    <CardContent >
-                  
-                        <Typography className="mb-8" variant="h5" component="h2">
-                          {people.name}
-                        </Typography>
+                        </div>
+                      </div>
+              )
+              )}
+              </div>
+              :
+              <div className="">
+              { peoples.map((people) => (
+                    <div className="md:w-1/6 mb-10 md: ml-12 md: mr-12  md:inline-flex shadow-2xl rounded-2xl ">
+                      <div className="h-80 w-80 bg-white rounded-3xl border-solid border-4 border-blue-900">
+                          <div className="w-full "><h1 className="mt-3 font-bold text-3xl">{people.name}</h1></div>
+                          <div className="w-full  mt-1 border-b-4 border-blue-900 text-xl"><p className="text-2xl font-medium ">Gender</p><h1 className="ml-1/5 mx-16">{people.gender}</h1></div>
+                          <div className="w-full mt-1  border-b-4 border-blue-900 text-xl"><p className="text-2xl font-medium">Hair Color</p><h1 className="ml-1/5 mx-16">{people.hair_color}</h1></div>
+                          <div className="w-full mt-1  text-xl"><p className="text-2xl font-medium">Eye Color</p><h1 className="ml-1/5 mx-16">{people.eye_color}</h1></div>
 
-                        <Typography  variant="body2" component="p">
-                            <p  className="font-bold flex">Gender </p>
-                            {people.gender}
-                        </Typography>
-                      
-                        <Typography c variant="body2" component="p">
-                            <p  className="font-bold flex">Mass </p>
-                            {people.mass}
-                        </Typography>
+                          <Link  to={`/people/${people.id}`}>
+                            <div className=" pt-3 " ><Button variant="outlined" color="primary">Learn more</Button></div>
+                          </Link>
+                      </div>
+                    </div>
+          ))}
 
-                        <Typography  variant="body2" component="p">
-                            <p  className="font-bold flex">Hair Color </p>
-                            {people.hair_color}
-                        </Typography>
-                    </CardContent>
-                    <CardActions className="text-center justify-center mx-auto">
-                        <Link to={`/people/${people.id}`}>
-                        <Button variant="outlined" color="secondary">Learn more</Button>
-                        </Link>
-                    </CardActions>
-                </Card>
-                 </div>
-        ))}
-
-       
-            </div>
-             }
+        
+              </div>
+              }
+          </div>
         </div>
     )
 }

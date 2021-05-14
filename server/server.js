@@ -1,6 +1,6 @@
 const Hapi = require('@hapi/hapi');
 const axios = require('axios')
-
+const dotenv = require("dotenv").config()
 
 const mongoose = require("mongoose");
 
@@ -15,8 +15,8 @@ mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true})
 const init = async () => {
 
   const server = Hapi.server({
-      port: 3000,
-      host: 'localhost',
+      port: process.env.PORT,
+      host: process.env.HOST,
       routes: {
         "cors": true
     }
@@ -25,7 +25,7 @@ const init = async () => {
   await server.register({
     plugin: require('hapi-mongodb'),
     options: {
-      url: 'mongodb://localhost:27017/StarWars',
+      url: uri,
       settings: {
           useUnifiedTopology: true
       },
@@ -33,7 +33,9 @@ const init = async () => {
     }
 });
 
-// Racine, Liste des personnages, Planets et starship
+
+// Route for peoples, Planets et starships
+
     server.route({  
         method: 'GET',
         path: '/people',
@@ -66,7 +68,6 @@ const init = async () => {
       
       })
 
-
       server.route({  
         method: 'GET',
         path: '/starship',
@@ -84,8 +85,7 @@ const init = async () => {
       })
 
 
-      // Page détail people  IL FAUT AJOUTER UN CHAMP ID et récuperer l'id de people etc...
-
+      // Route Detail Pages
 
       server.route({  
         method: 'GET',
@@ -102,7 +102,6 @@ const init = async () => {
       
       })
 
-
       server.route({  
         method: 'GET',
         path: '/planet/{id}',
@@ -117,7 +116,6 @@ const init = async () => {
         }
       
       })
-
 
       server.route({  
         method: 'GET',

@@ -2,15 +2,10 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
 import { makeStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import space from "../../assets/sw_detail.jpg"
+
+
 
 import {
   selectedProduct,
@@ -18,18 +13,10 @@ import {
 } from "../../redux/actions/productsActions";
 
 
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-});
-
-
 const PeopleDetails = () => {
-  const classes = useStyles();
+  
   const { peopleId } = useParams();
-  let product = useSelector((state) => state.product);
+  let people = useSelector((state) => state.product);
 
   const dispatch = useDispatch();
   const fetchProductDetail = async (id) => {
@@ -41,7 +28,6 @@ const PeopleDetails = () => {
       });
       
     dispatch(selectedProduct(response.data));
-    console.log("here",response.data)
   };
 
   useEffect(() => {
@@ -51,59 +37,26 @@ const PeopleDetails = () => {
     };
   }, [peopleId]);
 
-  console.log("product: ",product)
-
-  
+ 
   
   return (
-    <div className="h-screen">
+    <div className="h-screen bg-auto bg-no-repeat bg-center  " style={{backgroundImage:`url(${space})`}} > 
       
-      {Object.keys(product).length === 0 ? (
+      {Object.keys(people).length === 0 ? (
         <div>...Loading</div>
       ) : (
-        <div>
-          <h1 className="font-bold text-white text-4xl text-center ">{product[0].name}</h1>
-        <div className="ml-auto mr-auto w-5/12 mt-8">
-        <TableContainer  component={Paper}>
-      <Table className={classes.table} aria-label="simple table">
-        
-        <TableBody>
-          <TableRow className="bg-gray-600 ">
-              <TableCell>Soldat ID</TableCell>
-              <TableCell >{product[0].id}</TableCell>
-          </TableRow>
-          <TableRow className="bg-gray-600">
-            <TableCell>Height</TableCell>
-            <TableCell >{product[0].height}</TableCell>
-        
-          </TableRow>
-          <TableRow className="bg-gray-600">
-            <TableCell>Mass</TableCell>
-            <TableCell>{product[0].mass}</TableCell>
-        
-          </TableRow>
-          <TableRow className="bg-gray-600">
-            <TableCell>Hair Color</TableCell>
-            <TableCell >{product[0].hair_color}</TableCell>
-        
-          </TableRow>
-          
-          <TableRow className="bg-gray-600">
-            <TableCell>Skin Color</TableCell>
-            <TableCell >{product[0].skin_color}</TableCell>
-        
-          </TableRow>
-
-          <TableRow className="bg-gray-600">
-            <TableCell>Eye Color</TableCell>
-            <TableCell >{product[0].eye_color}</TableCell>
-        
-          </TableRow>
-        </TableBody>
-      </Table>
-    </TableContainer>
-    </div>
-    </div>
+        <div className=" ">
+          <h1 className="font-bold text-white text-4xl text-center pt-10 ">{people[0].name}</h1>
+          <div className="w-4/12 h-auto bg-white ml-auto mr-auto rounded-xl mt-20  ">
+            <div className="flex shadow-2xl pt-2 pb-2  "><div className="md:w-32 "><h1 className="md:ml-10 font-bold">Soldat ID</h1></div><h1 className="md:ml-60">{people[0].id}</h1></div>
+            <div className="flex shadow-2xl  pt-2 pb-2 "><div className="md:w-32 "><h1 className="md:ml-10 font-bold">Height</h1> </div><h1 className="md:ml-60">{people[0].height}</h1></div>
+            <div className="flex shadow-2xl  pt-2 pb-2 "><div className="md:w-32"><h1 className="md:ml-10 font-bold">Mass</h1></div> <h1 className="md:ml-60">{people[0].mass}</h1></div>
+            <div className="flex shadow-2xl  pt-2 pb-2"><div className="md:w-32 "><h1 className="md:ml-10 font-bold">Birth Year</h1> </div><h1 className="md:ml-60">{people[0].birth_year}</h1></div>
+            <div className="flex shadow-2xl  pt-2 pb-2 "><div className="md:w-32 "><h1 className="md:ml-10 font-bold">Hair Color</h1> </div><h1 className="md:ml-60">{people[0].hair_color}</h1></div>
+            <div className="flex shadow-2xl  pt-2 pb-2"><div className="md:w-32 "><h1 className="md:ml-10 font-bold">Skin Color</h1> </div><h1 className="md:ml-60">{people[0].skin_color}</h1></div>
+          </div>
+      
+        </div>
       )}
     </div>
   );

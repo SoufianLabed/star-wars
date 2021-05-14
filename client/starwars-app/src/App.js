@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './App.css';
 import Header from "./containers/Header"
+import space from "./assets/space.jpg"
 import {BrowserRouter as Router,Switch, Route} from 'react-router-dom';
 import PeopleListing from './containers/people/PeopleListing';
 import PeopleDetails from './containers/people/PeopleDetail';
@@ -96,45 +96,32 @@ useEffect(()=>{
 
   return (
     <Router>
-    <div className="h-auto bg-primary"  >
-    <div className="App">
-
-    {user ? (
-                <>
-                  <Header handleLogout={handleLogout}/>
-                  <div >
-               
-                
+      <div className="h-auto"   >
+        <div className="App">
+          {user ? (
+            <>
+              <Header handleLogout={handleLogout}/>
+                <div>    
                   <Switch>
                     <Route path="/planet" exact component={PlanetListing}/>
-                    <Route path="/planet/:planetId" exact component={PlanetDetail}/>
-                    
+                    <Route path="/planet/:planetId" exact component={PlanetDetail}/>               
                     <Route path="/" exact component={PeopleListing}/>
-                    <Route path="/people/:peopleId" exact component={PeopleDetails}/>
-                  
+                    <Route path="/people/:peopleId" exact component={PeopleDetails}/>                
                     <Route path="/starship/:starshipId" exact component={StarshipDetail}/>
                     <Route path="/starship/" exact component={StarshipListing}/>
                     <Route>ERROR TEST</Route> 
+                  </Switch>
+                </div>
+            </>
+                  ): (
 
-                    </Switch>
-                  
-               
-                  
-                  </div>
-                </>
-            ): (
-
-                <>
-                  <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword}  handleLogin={handleLogin}  handleLogout={handleLogout} handleSignup={handleSignup} hasAccount={hasAccount} setHasAcount={setHasAcount} emailError={emailError} passwordError={passwordError}/>
-                </>
-            )
+            <>
+              <Login email={email} setEmail={setEmail} password={password} setPassword={setPassword}  handleLogin={handleLogin}  handleLogout={handleLogout} handleSignup={handleSignup} hasAccount={hasAccount} setHasAcount={setHasAcount} emailError={emailError} passwordError={passwordError}/>
+            </>
+                  )
             }
-
-     
-
-
-    </div>
-    </div>
+        </div>
+      </div>
     </Router>
   );
 }
