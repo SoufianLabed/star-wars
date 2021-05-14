@@ -16,9 +16,9 @@ const StarshipDetail = () => {
 
   const dispatch = useDispatch();
   const fetchProductDetail = async (id) => {
-     console.log("ici",`http://localhost:3000/starship/${id}`)
+     console.log("ici",`http://localhost:4242/starship/${id}`)
     const response = await axios
-      .get(`http://localhost:3000/starship/${id}`)
+      .get(`http://localhost:4242/starship/${id}`)
       .catch((err) => {
         console.log("Err: ", err);
       });

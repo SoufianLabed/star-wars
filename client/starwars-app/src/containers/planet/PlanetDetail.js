@@ -19,7 +19,7 @@ const PlanetDetail = () => {
   const dispatch = useDispatch();
   const fetchProductDetail = async (id) => {
     const response = await axios
-      .get(`http://localhost:3000/planet/${id}`)
+      .get(`http://localhost:4242/planet/${id}`)
       .catch((err) => {
         console.log("Err: ", err);
       });

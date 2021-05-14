@@ -20,9 +20,9 @@ const PeopleDetails = () => {
 
   const dispatch = useDispatch();
   const fetchProductDetail = async (id) => {
-     console.log("ici",`http://localhost:3000/people/${id}`)
+     console.log("ici",`http://localhost:4242/people/${id}`)
     const response = await axios
-      .get(`http://localhost:3000/people/${id}`)
+      .get(`http://localhost:4242/people/${id}`)
       .catch((err) => {
         console.log("Err: ", err);
       });

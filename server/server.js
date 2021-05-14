@@ -1,11 +1,5 @@
 const Hapi = require('@hapi/hapi');
-const axios = require('axios')
-const dotenv = require("dotenv").config()
-
 const mongoose = require("mongoose");
-
-
-
 const uri = "mongodb://localhost:27017/StarWars"
 
 
@@ -15,8 +9,8 @@ mongoose.connect(uri,{useNewUrlParser: true, useUnifiedTopology: true})
 const init = async () => {
 
   const server = Hapi.server({
-      port: process.env.PORT,
-      host: process.env.HOST,
+      port: 4242,
+      host: "localhost",
       routes: {
         "cors": true
     }
