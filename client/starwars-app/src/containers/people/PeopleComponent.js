@@ -32,22 +32,11 @@ const PeopleComponent = () => {
       }, [searchTerm]);
 
     return (  
-    <div className="h-full" style={{backgroundImage:`url(${space})`}}>
-     
-
-        {peoples == '' ? 
-              <div className="h-screen">
-                
-              </div>
-              :
+    <div className="h-full min-h-screen" style={{backgroundImage:`url(${space})`}}>
               <div className="text-center h-full" >
-              <div className="pt-10 font-bold text-center" >   <LazyLoadImage width={75} className="mt-3 mb-3"  effect="blur" src={storm} alt={"link.alt"} /> <h1 className="text-4xl text-white">Soldier</h1> </div> 
-           
+              <div className="pt-10 font-bold text-center" >   <LazyLoadImage width={75} className="mt-3 mb-3"  effect="blur" src={storm} alt={"link.alt"} /> <h1 className="text-4xl text-white">Soldier</h1> </div>           
                 <div className="pt-10"  >
-      
-            
-                <input className="mb-8 bg-gray-200 appearance-none border-2 border-gray-200    rounded  py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-400" type="text" placeholder="Add people" value={searchTerm} onChange={handleChange}/>
-                    
+                <input className="mb-8 bg-gray-200 appearance-none border-2 border-gray-200    rounded  py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-blue-400" type="text" placeholder="Add people" value={searchTerm} onChange={handleChange}/>       
                     {searchTerm !== '' ? 
                     <div className="h-full">
                     { searchResults.map((people, i) => (
@@ -68,7 +57,6 @@ const PeopleComponent = () => {
                     </div>
                     :
                     <div className="">
-                      
                     { peoples.map((people) => (
                           <div className="md:w-1/6 mb-10 md: ml-12 md: mr-12  md:inline-flex shadow-2xl rounded-2xl ">
                             <div className="h-80 w-80 bg-white rounded-3xl border-solid border-4 border-blue-900">
@@ -83,18 +71,10 @@ const PeopleComponent = () => {
                             </div>
                           </div>
                     ))}
-      
-                    
-         
                   </div>
                     }
                 </div>
-              </div>
-              }
-        
-
-
-        
+              </div> 
       </div>
     )
 }

@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux";
 import PeopleComponent from "./PeopleComponent";
 import axios from 'axios';
 import {setProducts} from "../../redux/actions/productsActions"
+import space from "../../assets/sw_detail.jpg"
 
 
 
@@ -21,7 +22,7 @@ const PeopleListing = () => {
     },[])
 
     return(
-        <div className="min-h-screen">
+        <div className="h-full ">
             <PeopleComponent className=""/>
         </div>
     )

@@ -31,13 +31,8 @@ const StarshipComponent = () => {
       }, [searchTerm]);
 
     return (
-      <div className="" style={{backgroundImage:`url(${space})`}}>
+       <div className="h-full min-h-screen" style={{backgroundImage:`url(${space})`}}>
  
-        {starships == '' ? 
-              <div className="h-screen">
-                
-              </div>
-              :
               <div className="text-center h-full" style={{backgroundImage:`url(${space})`}}>
               <div className="pt-10 font-bold">   <LazyLoadImage width={75} className="mt-3 mb-3"  effect="blur" src={starship} alt={"link.alt"} /> <h1 className="text-4xl text-white">Starship</h1> </div> 
               <div className="pt-10">
@@ -79,17 +74,6 @@ const StarshipComponent = () => {
                     }
                 </div>
             </div>
-              }
-
-
-
-
-
-
-
-
-
-
       </div>
     )
 }

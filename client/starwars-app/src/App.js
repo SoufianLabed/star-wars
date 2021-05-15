@@ -1,6 +1,6 @@
 import './App.css';
 import Header from "./containers/Header"
-import space from "./assets/space.jpg"
+import space from "./assets/sw.jpg"
 import {BrowserRouter as Router,Switch, Route} from 'react-router-dom';
 import PeopleListing from './containers/people/PeopleListing';
 import PeopleDetails from './containers/people/PeopleDetail';
@@ -95,13 +95,14 @@ useEffect(()=>{
 },[])
 
   return (
+    
     <Router>
-      <div className="h-auto"   >
-        <div className="App">
+      <div className="h-auto" >
+        <div className="">
           {user ? (
             <>
               <Header handleLogout={handleLogout}/>
-                <div>    
+                <div >    
                   <Switch>
                     <Route  path="/planet" exact component={PlanetListing}/>
                     <Route path="/planet/:planetId" exact component={PlanetDetail}/>               
@@ -112,6 +113,7 @@ useEffect(()=>{
                     <Route>ERROR TEST</Route> 
                   </Switch>
                 </div>
+                
             </>
                   ): (
 
@@ -123,6 +125,7 @@ useEffect(()=>{
         </div>
       </div>
     </Router>
+  
   );
 }
 
