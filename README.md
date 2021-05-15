@@ -16,6 +16,8 @@ Une fois l'application lancée vous avez le choix de créer votre propre compte 
 
 J'ai beaucoup aimé réaliser ce projet, il a été l'occasion pour moi de découvrir Redux qui est une technologie que j'utiliserai dorenavant dans mes futurs projet donc Merci 😊.
 
+Lien Démo : https://youtu.be/SjefkgUYNmk 
+
 Je reste à votre disposition pour toutes questions ou problèmes liés à ce projet.
 
 Que la force soit avec vous.
