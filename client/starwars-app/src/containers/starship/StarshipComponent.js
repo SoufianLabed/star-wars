@@ -8,8 +8,6 @@ import Button from '@material-ui/core/Button';
 import space from "../../assets/sw.jpg"
 
 
-
-
 const StarshipComponent = () => {
 
     const [searchTerm, setSearchTerm] = useState("")

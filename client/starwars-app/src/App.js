@@ -97,8 +97,8 @@ useEffect(()=>{
   return (
     
     <Router>
-      <div className="h-auto" >
-        <div className="">
+      <div>
+        <div>
           {user ? (
             <>
               <Header handleLogout={handleLogout}/>
