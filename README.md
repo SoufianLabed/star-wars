@@ -14,6 +14,7 @@ Pour lancer l'application :
 Une fois l'application lancée vous avez le choix de créer votre propre compte ou utiliser le compte de service de l'empire : luke@yoda.com / DadSucks
 
 Stack Technique :
+
     - ReactJS (Redux, Axios, Tailwindcss)
     - Hapi (création du server) 
     - MongoDB (stockage des données)
