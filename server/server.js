@@ -52,10 +52,12 @@ const init = async () => {
         handler: async (request, h) => {
 
           console.log("start")
-          const people = await request.mongo.db.collection('planets').find({ }).toArray()
-          console.log(people)
+
+          // Selec * from planets
+          const planet = await request.mongo.db.collection('planets').find({ }).toArray()
+          console.log(planet)
            
-          return people;
+          return planet;
 
           
         }
@@ -68,10 +70,10 @@ const init = async () => {
         handler: async (request, h) => {
 
           console.log("start")
-          const people = await request.mongo.db.collection('starships').find({ }).toArray()
-          console.log(people)
+          const starship = await request.mongo.db.collection('starships').find({ }).toArray()
+          console.log(starship)
            
-          return people;
+          return starship;
 
           
         }
@@ -102,10 +104,10 @@ const init = async () => {
         handler: async (request, h) => {
 
           console.log("start")
-          const people = await request.mongo.db.collection('planets').find({url : `http://swapi.dev/api/planets/${request.params.id}/` }).toArray()
-          console.log(people)
+          const planet = await request.mongo.db.collection('planets').find({url : `http://swapi.dev/api/planets/${request.params.id}/` }).toArray()
+          console.log(planet)
            
-          return people;
+          return planet;
           
         }
       
@@ -117,11 +119,11 @@ const init = async () => {
         handler: async (request, h) => {
 
           console.log("start")
-          const people = await request.mongo.db.collection('starships').find({url : `http://swapi.dev/api/starships/${request.params.id}/` }).toArray()
+          const starship = await request.mongo.db.collection('starships').find({url : `http://swapi.dev/api/starships/${request.params.id}/` }).toArray()
           console.log(request.params.id)
-          console.log(people)
+          console.log(starship)
            
-          return people; 
+          return starship; 
         }
       
       })
