@@ -6,7 +6,7 @@ import space from "../../assets/sw_detail.jpg"
 
 import {
   selectedProduct,
-  removeSelectedProduct,
+
 } from "../../redux/actions/productsActions";
 
 
@@ -28,9 +28,7 @@ const PlanetDetail = () => {
 
   useEffect(() => {
     if (planetId && planetId !== "") fetchProductDetail(planetId);
-    return () => {
-      dispatch(removeSelectedProduct());
-    };
+   
   }, [planetId]);
   return (
     <div  className="h-screen bg-auto bg-no-repeat bg-center  " style={{backgroundImage:`url(${space})`}}>

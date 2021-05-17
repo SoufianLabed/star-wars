@@ -9,7 +9,6 @@ import space from "../../assets/sw_detail.jpg"
 
 import {
   selectedProduct,
-  removeSelectedProduct,
 } from "../../redux/actions/productsActions";
 
 
@@ -32,9 +31,6 @@ const PeopleDetails = () => {
 
   useEffect(() => {
     if (peopleId && peopleId !== "") fetchProductDetail(peopleId);
-    return () => {
-      dispatch(removeSelectedProduct());
-    };
   }, [peopleId]);
 
  

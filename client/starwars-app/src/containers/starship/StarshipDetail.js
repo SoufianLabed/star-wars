@@ -5,8 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import space from "../../assets/sw_detail.jpg"
 
 import {
-  selectedProduct,
-  removeSelectedProduct,
+  selectedProduct
 } from "../../redux/actions/productsActions";
 
 const StarshipDetail = () => {
@@ -27,9 +26,6 @@ const StarshipDetail = () => {
 
   useEffect(() => {
     if (starshipId && starshipId !== "") fetchProductDetail(starshipId);
-    return () => {
-      dispatch(removeSelectedProduct());
-    };
   }, [starshipId]);
 
 
